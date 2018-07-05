@@ -30,18 +30,15 @@ export class ApiService {
   }
 
   remember(data) {
-    this.login({ username: 'joaowanderley@ucl.br', password: '123456' }).subscribe((res: any) => {
-      console.log(res.access_token);
-      this.http.post(this.baseUrl + 'api/ValidCodes', data, { headers : { 'Authorization' : 'Bearer ' + res.access_token } }).subscribe(() => {
+    return this.http.post(this.baseUrl + 'api/ValidCodes', data);
+  }
 
-      }, () => {
+  checkCode(data) {
+    return this.http.post(this.baseUrl + 'api/CheckValidCode', data);
+  }
 
-      });
-    }, (err) => {
-      console.log(err);
-    });
-
-    return null;
+  changePassword(data) {
+    return this.http.post(this.baseUrl + 'api/Account/ChangePassword', data);
   }
 
   getAddresses() {
@@ -50,10 +47,6 @@ export class ApiService {
 
   saveAddresses(data) {
     return this.http.post(this.baseUrl + 'api/Address', data, this.getAuthHeader());
-  }
-
-  setPassword(data) {
-    return this.http.post(this.baseUrl + 'api/Account/SetPassword', data);
   }
 
   autoComplete(data) {

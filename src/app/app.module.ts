@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { CodeComponent } from './code/code.component';
-import { RememberComponent } from './remember/remember.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +16,7 @@ import { RememberComponent } from './remember/remember.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    CodeComponent,
-    RememberComponent
+    CodeComponent
   ],
   imports: [
     BrowserModule,

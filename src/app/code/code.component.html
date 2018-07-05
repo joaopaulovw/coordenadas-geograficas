@@ -1,7 +1,18 @@
 <div class="row row--justify">
-  <div class="card card--w3 elevation" id="register">
+  <div *ngIf="!remember" class="card card--w3 elevation" id="register">
     <form #codeForm="ngForm" (ngSubmit)="onSubmit(codeForm.value)">
       <input class="text-field form-control" name="Code" type="text" placeholder="Code" ngModel required>
+      <button class="button button--block" type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="remember" class="row row--justify">
+  <div class="card card--w3 elevation" id="register">
+    <form #rememberForm="ngForm" (ngSubmit)="onSubmitRemember(rememberForm.value)">
+      <input class="text-field form-control" name="Email" type="text" placeholder="Email" ngModel required>
+      <input class="text-field form-control" name="NewPassword" type="password" placeholder="Senha nova" ngModel required>
+      <input class="text-field form-control" name="ConfirmPassword" type="password" placeholder="Confirmar senha" ngModel required>
       <button class="button button--block" type="submit">Enviar</button>
     </form>
   </div>

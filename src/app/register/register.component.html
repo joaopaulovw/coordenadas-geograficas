@@ -1,0 +1,11 @@
+<div class="row row--justify">
+  <div class="card card--w3 elevation" id="register">
+      <span *ngIf="error != null" style="color: red; margin-bottom: 8px; display: block;">{{ error }}</span>
+      <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm.value)">
+          <input class="text-field form-control" name="Email" type="text" placeholder="Email" ngModel required>
+          <input class="text-field form-control" name="Password" type="password" placeholder="Senha" ngModel required>
+          <input class="text-field form-control" name="ConfirmPassword" type="password" placeholder="Confirmar senha" ngModel required>
+          <button class="button button--block" type="submit" [disabled]="loading">{{ loading ? 'Cadastrando...' : 'Cadastrar' }}</button>
+      </form>
+  </div>
+</div>

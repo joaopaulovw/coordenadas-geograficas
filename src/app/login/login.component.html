@@ -1,0 +1,13 @@
+<div class="row row--justify">
+    <div class="card card--w3 elevation" id="login">
+        <span *ngIf="error != null" style="color: red; margin-bottom: 8px; display: block;">{{ error }}</span>
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
+            <input class="text-field form-control" name="username" type="text" placeholder="Email" ngModel required>
+            <input class="text-field form-control" id="password" name="password" type="password" placeholder="Senha" ngModel required>
+            <a id="remember" (click)="sendCode(loginForm.value.username)">Esqueceu sua senha?</a>
+            <button class="button button--block" type="submit" [disabled]="loading">{{ loading ? 'Entrando...' : 'Entrar' }}</button>
+        </form>
+        <span id="register">Não tem uma conta?&nbsp;
+            <a routerLink="/register">Cadastrar-se</a>.</span>
+    </div>
+</div>

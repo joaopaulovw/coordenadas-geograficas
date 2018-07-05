@@ -1,0 +1,8 @@
+<div class="row row--justify">
+  <div class="card card--w3 elevation" id="register">
+    <form #codeForm="ngForm" (ngSubmit)="onSubmit(codeForm.value)">
+      <input class="text-field form-control" name="Code" type="text" placeholder="Code" ngModel required>
+      <button class="button button--block" type="submit">Enviar</button>
+    </form>
+  </div>
+</div>

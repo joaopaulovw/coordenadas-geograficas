@@ -1,0 +1,9 @@
+<div class="row row--justify">
+  <div class="card card--w3 elevation" id="register">
+    <form #rememberForm="ngForm" (ngSubmit)="onSubmit(rememberForm.value)">
+      <input class="text-field form-control" name="NewPassword" type="password" placeholder="Senha nova" ngModel required>
+      <input class="text-field form-control" name="ComfirmPassword" type="password" placeholder="Confirmar senha" ngModel required>
+      <button class="button button--block" type="submit">Enviar</button>
+    </form>
+  </div>
+</div>

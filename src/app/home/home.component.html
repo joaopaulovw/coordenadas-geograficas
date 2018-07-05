@@ -1,0 +1,34 @@
+<header class="toolbar elevation">
+    <h3>Coodenadas Geográficas</h3>
+    <div class="toolbar-spacing"></div>
+    <p>{{ user.userName }}</p>
+    <button class="button button--menu" id="logout" (click)="logout()">Sair</button>
+</header>
+<div class="row row--justify">
+    <div id="wrapper">
+        <div id="search-box">
+            <div class="row row--justify">
+                <input class="text-field elevation" id="search" name="input" placeholder="Buscar" [(ngModel)]="result" (keyup)="auto($event.target.value)"
+                    autocomplete="off">
+                <button *ngIf="result" class="button elevation" id="add" (click)="add()">Adicionar</button>
+            </div>
+            <div *ngIf="results.length > 0" class="card elevation" id="results">
+                <span *ngFor="let r of results" id="result" (click)="result = r.description; results = []">{{ r.description }}</span>
+            </div>
+        </div>
+        <div id="address">
+            <h4 id="address-header">Meus endereços</h4>
+            <hr>
+            <div *ngIf="addresses.length > 0">
+                <div *ngFor="let a of addresses" class="item card elevation">
+                    <p class="item-title">{{ a.FormatedAddress }}</p>
+                    <p class="item-text">Latitude: {{ a.Lat }}</p>
+                    <p class="item-text">Longitude: {{ a.Lng }}</p>
+                </div>
+            </div>
+            <div *ngIf="addresses.length <= 0" class="card elevation" style="margin-top: 24px; width: 100%;">
+                <p style="text-align: center;">Nenhum endereço</p>
+            </div>
+        </div>
+    </div>
+</div>
